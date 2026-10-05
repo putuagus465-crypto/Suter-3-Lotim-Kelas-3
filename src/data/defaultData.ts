@@ -54,7 +54,7 @@ export const DEFAULT_LOCATIONS: LocationConfig[] = [
 ];
 
 export const DEFAULT_SETTINGS: GameSettings = {
-  durationMinutes: 45,
+  durationMinutes: 0, // Tanpa batas waktu (bawaan)
   maxAttempts: 3,
   pointsFirstAttempt: 100,
   pointsSecondAttempt: 75,
@@ -85,26 +85,26 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'penggaris',
       item: 'pensil',
-      dimensions: { 'Lokasi': 'Pohon Jambu', 'Benda': 'Pensil Kayu', 'Ujung Penggaris': '0 s.d 9 cm', 'Panjang': '9 cm' },
-      label: 'POST 1: Penggaris & Pensil (0 - 9 cm)',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_a_2',
     locationId: 'pos_a',
-    question: 'Siti memetik sehelai daun dari Pohon Jambu lalu mengukurnya dengan penggaris. Panjang daun adalah 8 sentimeter. Berapakah panjang daun tersebut dalam satuan milimeter (mm)?',
+    question: 'Siti memetik sehelai daun dari Pohon Jambu lalu mengukurnya dengan penggaris seperti pada gambar. Berapakah panjang daun tersebut dalam satuan milimeter (mm)?',
     shapeType: 'penggaris',
     type: 'pilihan_ganda',
     difficulty: 'mudah',
     options: ['8 mm', '80 mm', '800 mm', '8.000 mm'],
     correctAnswer: '80 mm',
-    explanation: 'Hubungan satuan panjang baku: 1 sentimeter (cm) = 10 milimeter (mm). Jadi, 8 cm = 8 × 10 mm = 80 mm.',
+    explanation: 'Pada penggaris panjang daun adalah 8 cm. Karena 1 cm = 10 mm, maka 8 cm = 8 × 10 mm = 80 mm.',
     unit: 'mm',
     diagram: {
       shape: 'penggaris',
       item: 'daun',
-      dimensions: { 'Lokasi': 'Pohon Jambu', 'Benda': 'Daun Jambu (8 cm)', 'Rumus': '1 cm = 10 mm', 'Hasil': '80 mm' },
-      label: 'POST 1: Penggaris & Daun Pohon Jambu',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
@@ -119,26 +119,27 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'cm',
     diagram: {
       shape: 'pita_panjang',
-      dimensions: { 'Lokasi': 'Pohon Jambu', 'Tali Dahan': '3 meter', '1 meter': '100 cm', 'Hasil': '3 × 100 = 300 cm' },
-      label: 'POST 1: Konversi Meter ke Sentimeter',
+      item: 'tali_meter',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_a_4',
     locationId: 'pos_a',
-    question: 'Di bangku dekat Pohon Jambu, Udin meletakkan penghapus di atas penggaris. Ujung kiri berada di angka 2 cm dan ujung kanan di angka 7 cm. Berapakah panjang penghapus tersebut?',
+    question: 'Di bangku dekat Pohon Jambu, Udin meletakkan penghapus di atas penggaris seperti pada gambar. Berapakah panjang penghapus tersebut?',
     shapeType: 'penggaris',
     type: 'pilihan_ganda',
     difficulty: 'sedang',
     options: ['4 cm', '5 cm', '6 cm', '7 cm'],
     correctAnswer: '5 cm',
-    explanation: 'Jika pengukuran tidak dimulai dari angka 0, panjang benda = angka ujung akhir dikurangi angka ujung awal = 7 cm - 2 cm = 5 cm.',
+    explanation: 'Ujung kiri penghapus berada di angka 2 cm dan ujung kanan di angka 7 cm. Panjang penghapus = 7 cm - 2 cm = 5 cm.',
     unit: 'cm',
     diagram: {
       shape: 'penggaris',
       item: 'penghapus',
-      dimensions: { 'Titik Awal': '2 cm', 'Titik Akhir': '7 cm', 'Panjang': '7 - 2 = 5 cm' },
-      label: 'POST 1: Penggaris & Penghapus (Mulai 2 cm)',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
@@ -154,8 +155,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'pita_panjang',
       item: 'bambu_potong',
-      dimensions: { 'Bambu Penyangga': '250 cm', 'Dipotong': '50 cm', 'Sisa': '250 - 50 = 200 cm' },
-      label: 'POST 1: Memotong Bambu Penyangga',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
 
@@ -177,14 +178,14 @@ export const DEFAULT_QUESTIONS: Question[] = [
       shape: 'timbangan_jarum',
       item: 'semangka',
       weightGrams: 2000,
-      dimensions: { 'Lokasi': 'Kantin Sekolah', 'Benda': 'Buah Semangka', 'Jarum': 'Tepat di 2 kg', 'Berat': '2 kg' },
-      label: 'POST 2: Timbangan Kue / Dapur Kantin',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_b_2',
     locationId: 'pos_b',
-    question: 'Kantin sekolah menerima kiriman 1 kantong gula pasir seberat 1 kilogram (1 kg). Jika diubah ke dalam satuan gram, berapakah berat gula pasir tersebut?',
+    question: 'Kantin sekolah menerima kiriman 1 kantong gula pasir seberat 1 kilogram. Jika diubah ke dalam satuan gram, berapakah berat gula pasir tersebut?',
     shapeType: 'berat_benda',
     type: 'pilihan_ganda',
     difficulty: 'mudah',
@@ -194,8 +195,9 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'gram',
     diagram: {
       shape: 'berat_benda',
-      dimensions: { 'Lokasi': 'Kantin', 'Benda': '1 Kantong Gula', 'Berat': '1 kg = 1.000 gram' },
-      label: 'POST 2: Gula Pasir Kantin (1 kg ke Gram)',
+      item: 'gula_1kg',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
@@ -210,14 +212,14 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'gram',
     diagram: {
       shape: 'timbangan_bebek',
-      dimensions: { 'Lokasi': 'Kantin', 'Anak Timbel 1': '1 kg (1.000 g)', 'Anak Timbel 2': '500 g', 'Total': '1.500 gram' },
-      label: 'POST 2: Timbangan Pasar Bebek Kantin',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_b_4',
     locationId: 'pos_b',
-    question: 'Untuk membuat kue jajanan kantin yang lezat, ibu kantin menyiapkan 3 kantong tepung terigu @ 10 ons. Berapakah total berat ketiga kantong tepung dalam satuan kilogram (kg)?',
+    question: 'Untuk membuat kue jajanan kantin yang lezat, ibu kantin menyiapkan 3 kantong tepung terigu yang masing-masing beratnya 10 ons. Berapakah total berat ketiga kantong tepung dalam satuan kilogram (kg)?',
     shapeType: 'berat_benda',
     type: 'pilihan_ganda',
     difficulty: 'sedang',
@@ -228,8 +230,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'berat_benda',
       item: 'tepung',
-      dimensions: { 'Lokasi': 'Kantin', 'Banyak': '3 Kantong', 'Tiap Kantong': '10 ons = 1 kg', 'Total': '3 kg' },
-      label: 'POST 2: Tepung Kue Kantin (Ons ke Kg)',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
@@ -246,8 +248,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'berat_benda',
       item: 'buah_pasar',
-      dimensions: { 'Lokasi': 'Kantin', 'Jeruk': '2 kg', 'Mangga': '3 kg', 'Total': '2 + 3 = 5 kg' },
-      label: 'POST 2: Keranjang Belanjaan Buah Kantin',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
 
@@ -267,8 +269,9 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'kg',
     diagram: {
       shape: 'berat_benda',
-      dimensions: { 'Lokasi': 'Ruang UKS', 'Alat': 'Timbangan Badan Siswa', 'Kapasitas': '120 - 150 kg' },
-      label: 'POST 3: Timbangan Badan Ruang UKS',
+      item: 'alat_timbang',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
@@ -284,14 +287,14 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'm',
     diagram: {
       shape: 'alat_ukur_panjang',
-      dimensions: { 'Lokasi': 'Ruang UKS', 'Sifat': 'Lentur & Melengkung', 'Fungsi': 'Lingkar Pinggang & Dada' },
-      label: 'POST 3: Alat Ukur Lingkar Badan UKS',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_c_3',
     locationId: 'pos_c',
-    question: 'Petugas UKS menyambung dua rol kain perban luka: perban merah 120 cm dan perban kuning 80 cm. Berapakah panjang seluruh perban luka yang disambung?',
+    question: 'Petugas UKS menyambung dua rol kain perban luka: perban pertama 120 cm dan perban kedua 80 cm. Berapakah panjang seluruh perban luka yang disambung?',
     shapeType: 'pita_panjang',
     type: 'pilihan_ganda',
     difficulty: 'mudah',
@@ -302,8 +305,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'pita_panjang',
       item: 'pita_sambung',
-      dimensions: { 'Lokasi': 'Ruang UKS', 'Perban 1': '120 cm', 'Perban 2': '80 cm', 'Total': '120 + 80 = 200 cm' },
-      label: 'POST 3: Menyambung Perban Luka UKS',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
@@ -319,14 +322,15 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'gram',
     diagram: {
       shape: 'berat_benda',
-      dimensions: { 'Lokasi': 'Ruang UKS', 'Ransel Total': '4 kg (4.000 g)', 'Buku': '1.500 g', 'Barang Lain': '4.000 - 1.500 = 2.500 g' },
-      label: 'POST 3: Isi Ransel Siswa di UKS',
+      item: 'ransel_uks',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_c_5',
     locationId: 'pos_c',
-    question: 'Dokter kecil di UKS mengajak siswa jalan sehat mengelilingi rute sekolah sejauh 1 kilometer (1 km) lebih 200 meter. Berapakah jarak tersebut dalam satuan meter (m)?',
+    question: 'Dokter kecil di UKS mengajak siswa jalan sehat mengelilingi rute sekolah sejauh 1 kilometer lebih 200 meter. Berapakah jarak tersebut dalam satuan meter (m)?',
     shapeType: 'rute_jarak',
     type: 'pilihan_ganda',
     difficulty: 'sedang',
@@ -336,8 +340,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'm',
     diagram: {
       shape: 'rute_jarak',
-      dimensions: { 'Lokasi': 'Rute UKS', '1 km': '1.000 m', 'Lebih': '200 m', 'Total': '1.200 meter' },
-      label: 'POST 3: Rute Jalan Sehat UKS',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
 
@@ -347,7 +351,7 @@ export const DEFAULT_QUESTIONS: Question[] = [
   {
     id: 'q_pos_d_1',
     locationId: 'pos_d',
-    question: 'Panjang meja baca di ruang Perpustakaan adalah 1 meter lebih 45 sentimeter (1 m 45 cm). Berapa total panjang meja baca tersebut dalam satuan sentimeter (cm)?',
+    question: 'Panjang meja baca di ruang Perpustakaan adalah 1 meter lebih 45 sentimeter. Berapa total panjang meja baca tersebut dalam satuan sentimeter (cm)?',
     shapeType: 'pita_panjang',
     type: 'isian_angka',
     difficulty: 'mudah',
@@ -356,14 +360,15 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'cm',
     diagram: {
       shape: 'pita_panjang',
-      dimensions: { 'Lokasi': 'Perpustakaan', 'Ukuran Meja': '1 m 45 cm', '1 meter': '100 cm', 'Total': '100 + 45 = 145 cm' },
-      label: 'POST 4: Meja Baca Perpustakaan',
+      item: 'meja_baca',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_d_2',
     locationId: 'pos_d',
-    question: 'Papan pengumuman buku baru di Perpustakaan memiliki panjang 3 meter (300 cm). Petugas perpustakaan sudah mengecat sepanjang 180 cm. Berapa sentimeter (cm) sisa papan yang belum dicat?',
+    question: 'Papan pengumuman buku baru di Perpustakaan memiliki panjang 3 meter. Petugas perpustakaan sudah mengecat sepanjang 180 cm. Berapa sentimeter (cm) sisa papan yang belum dicat?',
     shapeType: 'pita_panjang',
     type: 'isian_angka',
     difficulty: 'sedang',
@@ -372,15 +377,16 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'cm',
     diagram: {
       shape: 'pita_panjang',
-      dimensions: { 'Lokasi': 'Perpustakaan', 'Panjang Papan': '3 m (300 cm)', 'Sudah Dicat': '180 cm', 'Sisa': '300 - 180 = 120 cm' },
-      label: 'POST 4: Papan Pengumuman Perpustakaan',
+      item: 'papan_cat',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_d_3',
     locationId: 'pos_d',
     question: 'Perpustakaan menerima paket sumbangan bahan makanan berlabel beras 3.500 gram. Bentuk ukuran tersebut sama dengan...',
-    shapeType: 'timbangan_jarum',
+    shapeType: 'berat_benda',
     type: 'pilihan_ganda',
     difficulty: 'sedang',
     options: ['3 kg lebih 50 gram', '3 kg lebih 500 gram', '35 kg', '30 kg lebih 5 gram'],
@@ -388,17 +394,16 @@ export const DEFAULT_QUESTIONS: Question[] = [
     explanation: '3.500 gram dapat diuraikan menjadi: 3.000 gram + 500 gram = 3 kg lebih 500 gram.',
     unit: 'gram',
     diagram: {
-      shape: 'timbangan_jarum',
-      item: 'beras',
-      weightGrams: 3500,
-      dimensions: { 'Lokasi': 'Perpustakaan', 'Berat Beras': '3.500 g', '3.000 g': '3 kg', 'Uraian': '3 kg 500 g' },
-      label: 'POST 4: Paket Beras 3.500 gram',
+      shape: 'berat_benda',
+      item: 'beras_3500',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_d_4',
     locationId: 'pos_d',
-    question: 'Di lemari dapur perpustakaan tersedia 5 kantong gula pasir @ 1 kilogram (1 kg). Berapakah total berat seluruh gula pasir tersebut dalam satuan gram?',
+    question: 'Di lemari dapur perpustakaan tersedia 5 kantong gula pasir yang masing-masing beratnya 1 kilogram. Berapakah total berat seluruh gula pasir tersebut dalam satuan gram?',
     shapeType: 'berat_benda',
     type: 'isian_angka',
     difficulty: 'mudah',
@@ -408,14 +413,14 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'berat_benda',
       item: 'gula_5kg',
-      dimensions: { 'Lokasi': 'Perpustakaan', 'Banyak': '5 Kantong', 'Tiap Kantong': '1 kg', 'Total': '5.000 gram' },
-      label: 'POST 4: 5 Kantong Gula Pasir',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_pos_d_5',
     locationId: 'pos_d',
-    question: 'Pekarangan dekat perpustakaan menghasilkan panen cabai merah 40 ons. Berapa kilogram (kg) cabai merah hasil panen tersebut? (Ingat: 10 ons = 1 kg)',
+    question: 'Pekarangan dekat perpustakaan menghasilkan panen cabai merah seberat 40 ons. Berapa kilogram (kg) cabai merah hasil panen tersebut?',
     shapeType: 'berat_benda',
     type: 'isian_angka',
     difficulty: 'sedang',
@@ -424,8 +429,9 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'kg',
     diagram: {
       shape: 'berat_benda',
-      dimensions: { 'Lokasi': 'Pekarangan Perpustakaan', 'Panen Cabai': '40 ons', 'Patokan': '10 ons = 1 kg', 'Hasil': '40 ÷ 10 = 4 kg' },
-      label: 'POST 4: Panen Cabai Merah Pekarangan',
+      item: 'cabai_ons',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
 
@@ -445,14 +451,14 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'cm',
     diagram: {
       shape: 'harta_karun',
-      dimensions: { 'Lokasi': 'Meja Guru Kelas', 'Tali Peti': '4 m (400 cm)', 'Dibagi': '4 bagian sama', 'Tiap Potong': '400 ÷ 4 = 100 cm' },
-      label: 'POST 5: Tali Peti Harta Karun Guru Kelas',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
     id: 'q_final_2',
     locationId: 'pos_final',
-    question: 'Guru Kelas meletakkan timbangan neraca dua lengan yang seimbang di atas meja! Di lengan kiri ada 1 semangka besar. Di lengan kanan ada 2 melon (@ 1.200 gram). Berapakah berat semangka dalam satuan gram?',
+    question: 'Guru Kelas meletakkan timbangan neraca dua lengan yang seimbang di atas meja! Di lengan kiri ada 1 semangka besar. Di lengan kanan ada 2 melon yang masing-masing beratnya 1.200 gram. Berapakah berat semangka dalam satuan gram?',
     shapeType: 'neraca',
     type: 'isian_angka',
     difficulty: 'sulit',
@@ -461,8 +467,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'gram',
     diagram: {
       shape: 'neraca',
-      dimensions: { 'Lokasi': 'Meja Guru Kelas', 'Lengan Kiri': '1 Semangka (?)', 'Lengan Kanan': '2 Melon (@ 1.200 g)', 'Total': '1.200 + 1.200 = 2.400 g' },
-      label: 'POST 5: Neraca Seimbang Meja Guru Kelas',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
@@ -478,8 +484,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'km',
     diagram: {
       shape: 'rute_jarak',
-      dimensions: { 'Tujuan': 'Pos Guru Kelas', 'Lintasan A+B+C': '350 + 450 + 200 m', 'Total Meter': '1.000 m', 'Hasil': '1.000 m = 1 km' },
-      label: 'POST 5: Rute Menuju Pos Guru Kelas',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
@@ -495,8 +501,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'gram',
     diagram: {
       shape: 'harta_karun',
-      dimensions: { 'Lokasi': 'Meja Guru Kelas', 'Target': '2 kg (2.000 g)', 'Sudah Ada': '1.300 gram', 'Kekurangan': '2.000 - 1.300 = 700 g' },
-      label: 'POST 5: Kunci Peti Harta Karun',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
   {
@@ -511,8 +517,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'gram',
     diagram: {
       shape: 'harta_karun',
-      dimensions: { 'Dari': 'Guru Kelas', 'Koin Perak': '3 kg = 3.000 g', 'Koin Emas': '500 gram', 'Total Berat': '3.500 gram' },
-      label: 'POST 5: Kantong Harta Karun Guru Kelas',
+      dimensions: {},
+      label: 'Ilustrasi Soal',
     },
   },
 ];

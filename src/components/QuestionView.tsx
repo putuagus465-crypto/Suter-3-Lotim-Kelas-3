@@ -338,7 +338,7 @@ export const QuestionView: React.FC<Props> = ({
                 </h4>
                 <p className="text-xs sm:text-sm mt-0.5 font-semibold leading-relaxed">{feedback.message}</p>
 
-                {feedback.explanation && (
+                {feedback.status === 'correct' && feedback.explanation && (
                   <div className="mt-2 p-2.5 bg-white/95 rounded-xl border border-blue-200 text-xs shadow-2xs">
                     <span className="font-black text-blue-900 block mb-0.5">💡 Pembahasan:</span>
                     <span className="text-slate-800 leading-relaxed">{feedback.explanation}</span>
@@ -405,7 +405,7 @@ export const QuestionView: React.FC<Props> = ({
                       setTypedAnswer(e.target.value);
                       if (validationWarning) setValidationWarning(null);
                     }}
-                    placeholder="Contoh: 64"
+                    placeholder="Ketik angka jawaban..."
                     disabled={isSubmitting}
                     className="w-full px-4 py-3 bg-blue-50/50 border-2 border-blue-300 focus:border-blue-600 rounded-2xl text-lg font-black text-blue-950 focus:outline-hidden focus:bg-white transition-all shadow-inner"
                   />

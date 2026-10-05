@@ -688,7 +688,6 @@ async function startServer() {
         attemptsLeft: 0,
         canRetry: false,
         message: '⚠️ KESEMPATAN 3X HABIS! Kelompok gagal pada pos ini. Aplikasi terkunci dan memerlukan reset oleh Guru di Panel Guru dengan kode "ulangi".',
-        explanation: q.explanation,
         session,
       });
     }

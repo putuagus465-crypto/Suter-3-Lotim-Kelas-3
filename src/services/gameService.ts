@@ -14,9 +14,9 @@ import {
 } from '../data/defaultData';
 
 const LOCAL_SESSION_KEY = 'matematika_berburu_harta_session';
-const LOCAL_SETTINGS_KEY = 'matematika_settings';
-const LOCAL_LOCATIONS_KEY = 'matematika_locations';
-const LOCAL_QUESTIONS_KEY = 'matematika_questions';
+const LOCAL_SETTINGS_KEY = 'matematika_settings_v3';
+const LOCAL_LOCATIONS_KEY = 'matematika_locations_v3';
+const LOCAL_QUESTIONS_KEY = 'matematika_questions_v3';
 const LOCAL_LEADERBOARD_KEY = 'matematika_leaderboard';
 
 // Helper to shuffle array
@@ -99,7 +99,19 @@ class GameService {
       // fallback
     }
     const saved = localStorage.getItem(LOCAL_SETTINGS_KEY);
-    return saved ? JSON.parse(saved) : DEFAULT_SETTINGS;
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.durationMinutes === 45) {
+          parsed.durationMinutes = 0;
+          localStorage.setItem(LOCAL_SETTINGS_KEY, JSON.stringify(parsed));
+        }
+        return parsed;
+      } catch {
+        // ignore
+      }
+    }
+    return DEFAULT_SETTINGS;
   }
 
   // Update Settings
@@ -193,7 +205,12 @@ class GameService {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].question && parsed[0].question.includes('luas')) {
+        if (
+          Array.isArray(parsed) &&
+          parsed.length > 0 &&
+          (parsed[0].question.includes('luas') ||
+           (parsed[0].diagram?.dimensions && 'Panjang' in parsed[0].diagram.dimensions))
+        ) {
           localStorage.setItem(LOCAL_QUESTIONS_KEY, JSON.stringify(DEFAULT_QUESTIONS));
           return DEFAULT_QUESTIONS;
         }
@@ -658,7 +675,6 @@ class GameService {
         attemptsLeft: 0,
         canRetry: false,
         message: '⚠️ KESEMPATAN 3X HABIS! Kelompok gagal pada pos ini. Aplikasi otomatis terkunci dan memerlukan pembukaan kunci oleh Guru Pendamping.',
-        explanation: q?.explanation,
         session,
       };
     }
